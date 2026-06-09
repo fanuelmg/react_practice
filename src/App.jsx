@@ -12,6 +12,9 @@ import RegisterPage from "./pages/RegisterPage";
 import ProductDetail from "./pages/ProductDetail";
 // ...
 <Route path="/products/:id" element={<ProductDetail />} />;
+import LoginPage from "./pages/LoginPage";
+// ...
+<Route path="/login" element={<LoginPage />} />;
 function App() {
   return (
     <BrowserRouter>
