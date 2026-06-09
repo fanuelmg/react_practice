@@ -9,6 +9,9 @@ import CounterPage from "./pages/CounterPage";
 import RegisterPage from "./pages/RegisterPage";
 // ...
 <Route path="/register" element={<RegisterPage />} />;
+import ProductDetail from "./pages/ProductDetail";
+// ...
+<Route path="/products/:id" element={<ProductDetail />} />;
 function App() {
   return (
     <BrowserRouter>
