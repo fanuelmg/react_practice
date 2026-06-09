@@ -1,21 +1,22 @@
-import { useState, useEffect } from "react";
+import { useFetch } from "../hooks/useFetch";
 import Product from "../components/Product";
 function Products() {
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
+  const {
+    data: products,
+    loading,
+    error,
+  } = useFetch("https://fakestoreapi.com/products");
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-6">Products Page</h1>
+    <>
+      <h1>Products Page</h1>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {products.map((p) => (
           <Product key={p.id} product={p} />
         ))}
       </div>
-    </div>
+    </>
   );
 }
 export default Products;
