@@ -15,6 +15,17 @@ import ProductDetail from "./pages/ProductDetail";
 import LoginPage from "./pages/LoginPage";
 // ...
 <Route path="/login" element={<LoginPage />} />;
+import ProtectedRoute from "./components/ProtectedRoute";
+import Dashboard from "./pages/Dashboard";
+// ...
+<Route
+  path="/dashboard"
+  element={
+    <ProtectedRoute>
+      <Dashboard />
+    </ProtectedRoute>
+  }
+/>;
 function App() {
   return (
     <BrowserRouter>
